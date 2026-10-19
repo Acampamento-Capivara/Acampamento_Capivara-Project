@@ -1,0 +1,602 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+
+body {
+    background-image: url(Imagens/Background3.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 100%;
+    background-clip: initial;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+html:has(body.tela-celular) {
+    
+    height: 100%;
+    overflow: auto;
+}
+
+body.tela-celular {
+    position: relative;
+    inset: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-size: 530%;
+    background-position: -180px 0px;
+}
+
+body.tela-celular .slider-celular {
+    position: fixed;
+}
+
+body.tela-celular nav {
+    position: fixed;
+}
+
+.slider {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 25px;
+    top: 160px;
+    left: 100px;
+    align-items: center;
+}
+
+.slider.slider-celular {
+    width: 360px;
+    height: 360px;
+    top: 140px;
+    left: auto;
+}
+
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s ease;
+    filter: saturate(1.4);
+}
+
+.slider .prox {
+    position: fixed;
+    left: 630px;
+    width: 40px;
+    height: 40px;
+    top: 420px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 25px;
+    cursor: pointer;
+    background-image: url('Imagens/Arrow_F.svg');
+    backdrop-filter: brightness(100);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.saindo {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.entrando {
+    animation: entrar .4s ease;
+}
+
+@keyframes entrar {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.prev {
+    position: fixed;
+    left: 120px;
+    width: 40px;
+    height: 40px;
+    top: 420px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 25px;
+    cursor: pointer;
+    background-image: url('Imagens/Arrow_F.svg');
+    backdrop-filter: brightness(100);
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotate(180deg);
+}
+
+.indicadores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    position: fixed;
+    left: 370px;
+    top: 720px;
+}
+
+.bolinha {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #aaa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.bolinha.ativa {
+    width: 25px;
+    height: 9px;
+    border-radius: 10px;
+    background: white;
+}
+
+h1 {
+    position: fixed;
+    left: 890px;
+    color: rgb(234 212 166);
+    font-family: 'Merriweather';
+    font-weight: 1600;
+    font-size: 330%;
+    width: 720px;
+    top: 240px;
+    text-align: end;
+}
+
+h2 {
+    position: fixed;
+    left: 1048px;
+    color: rgb(234 212 166);
+    font-family: 'Merriweather';
+    font-weight: 1600;
+    font-size: 130%;
+    width: 720px;
+    top: 480px;
+    opacity: 0.8;
+}
+
+.li1::after {
+    width: 100%;
+}
+
+nav.nav-celular {
+    background-color: rgba(255, 255, 255, 0.12);
+    width: 280px;
+    left: auto;
+    height: 75px;
+    margin-top: 12px;
+    border-radius: 30px;
+}
+
+.others {
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: fixed;
+    left: 130px;
+    top: 35px;
+    transition: transform .3s ease;
+}
+
+.others::before,
+.others::after {
+    content: "";
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: absolute;
+    left: 0;
+}
+
+.others::before {
+    top: -11px;
+}
+
+.others::after {
+    top: 11px;
+}
+
+.others.ativado {
+    transform: rotate(90deg);
+}
+
+nav.ativado {
+    height: 300px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    transition: height .3s ease-in-out, rgba .3s ease-in-out;
+    left: auto;
+}
+
+ul {
+    display: flex;
+    gap: 20px;
+    position: fixed;
+    left: 740px;
+    top: 20px;
+    transition: opacity .2s ease-in-out;
+    z-index: 10;
+}
+
+ul li {
+    font-family: 'Poppins';
+    color: rgb(234 212 166);
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(95%);
+    width: 1700px;
+    height: 100px;
+    position: absolute;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    left: 100px;
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 5px;
+    margin-left: 30px;
+    opacity: 1;
+}
+
+nav button {
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    font-family: 'Poppins';
+    color: rgb(205 205 150);
+    font-weight: 700;
+    left: 1560px;
+    font-size: 80%;
+    transition: background-color .3s ease;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+}
+
+li {
+    text-decoration: none;
+}
+
+.li6 {
+    text-decoration: none;
+}
+
+ul li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: rgb(205 205 150);
+    bottom: -1px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+ul li:hover::after {
+    width: 100%;
+}
+
+.home-button {
+    border: none;
+    position: fixed;
+    width: 130px;
+    height: 50px;
+    top: 590px;
+    text-align: start;
+    padding-left: 25px;
+    left: 1479px;
+    border-radius: 10px;
+    background-color: rgb(205 205 166);
+    color: rgb(0 90 70);
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 100%;
+    transform-origin: right;
+    transition: transform .2s ease, padding-left .2s ease;
+    cursor: pointer;
+}
+
+.home-button::after {
+    content: "";
+    position: fixed;
+    background-image: url('Imagens/Arrow_F.svg');
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: brightness(0) saturate(100%) invert(28%) sepia(35%) saturate(1000%) hue-rotate(125deg) brightness(85%) contrast(100%);
+    left: 1490px;
+    top: 600px;
+    opacity: 0;
+    transition: opacity .3s ease, left .4s ease;
+    transform: rotate(180deg);
+}
+
+.home-button:hover {
+    padding-left: 38px;
+}
+
+.home-button:hover::after {
+    opacity: 1;
+    left: 1470px;
+}
+
+.home-button::before {
+    content: "";
+    position: fixed;
+    width: 130px;
+    height: 50px;
+    background-color: rgb(205 205 166);
+    top: 590px;
+    left: 1468px;
+    border-radius: 10px;
+    z-index: -1;
+    transform-origin: right;
+    transition: transform .3s ease;
+}
+
+.home-button:hover::before {
+    transform: scaleX(110%);
+}
+
+.li1.ativado + ul {
+    opacity: 1;
+}
+
+.li1.ativado,
+.li2.ativado,
+.li3.ativado,
+.li4.ativado,
+.li5.ativado,
+.li6.ativado {
+    opacity: 1;
+}
+
+ul.ativado {
+    opacity: 1;
+    left: 0;
+    position: absolute;
+}
+
+.li1.ativado {
+    top: 40px;
+    position: absolute;
+    left: 31px;
+}
+
+.li1.ativado::after {
+    top: 22px;
+    position: absolute;
+    left: 1px;
+}
+
+.li2.ativado {
+    top: 85px;
+    position: absolute;
+    left: 31px;
+    width: 200px;
+}
+
+.li3.ativado {
+    top: 134px;
+    position: absolute;
+    left: 31px;
+    width: 1px;
+}
+
+.li4.ativado {
+    top: 86px;
+    position: absolute;
+    left: 180px;
+    width: 100px;
+}
+
+.li5.ativado {
+    top: 133px;
+    position: absolute;
+    left: 150px;
+    width: 200px;
+}
+
+.li6.ativado {
+    top: 40px;
+    position: absolute;
+    left: 80px;
+    text-align: center;
+    width: 200px;
+}
+
+nav button.ativado {
+    left: 100px;
+    background-color: rgb(205 205 146);
+    top: 230px;
+    color: rgb(0 90 70);
+    backdrop-filter: blur(100px);
+}
+
+.prev.ativado {
+    top: 150px;
+    left: 20px;
+    width: 33px;
+    height: 33px;
+    position: absolute;
+}
+
+.prox.ativado {
+    position: absolute;
+    top: 150px;
+    left: 310px;
+    width: 33px;
+    height: 33px;
+}
+
+.indicadores.ativado {
+    top: 460px;
+    left: auto;
+}
+
+h1.ativado {
+    top: 530px;
+    opacity: 1;
+    left: auto;
+    font-size: 160%;
+    width: 400px;
+    text-align: center;
+}
+
+.home-button.ativado {
+    left: auto;
+    top: 760px;
+}
+
+.home-button.ativado:hover {
+    padding-left: 25px;
+}
+
+h2.ativado {
+    left: auto;
+    width: 330px;
+    top: 660px;
+    text-align: center;
+    font-size: 100%;
+}
+
+
+body.tablet nav{
+width: 720px;
+left: auto;
+backdrop-filter: blur(0px);
+background-color: rgba(255, 255, 255, 0.10);
+}
+body.tablet {
+    position: fixed;
+    overflow-y: auto;
+    background-size: 260%;
+    background-position: 0px 0px;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+width: 74dvh;
+
+}
+
+body.tablet ul{
+  opacity: 1;
+left: auto;
+}
+body.tablet .li1{
+  opacity: 1;
+  top: -1;
+}
+body.tablet .li2{
+  opacity: 1;
+width: 110px;
+left: 10px;
+top: -1px;
+}
+body.tablet .li3{
+  opacity: 1;
+width: 27px;
+left: 10px;
+top: -1px;
+}
+body.tablet .li4{
+  opacity: 1;
+width: 167px;
+top: -1px;
+left: 30px;
+}
+body.tablet .li5{
+  opacity: 1;
+width: 167px;
+top: -1px;
+left: -60px;
+}
+body.tablet .li6{
+  opacity: 1;
+width: 167px;
+top: -1px;
+left: -70px;
+}
+body.tablet .slider{
+left: auto;
+top: 200px;
+width: 600px;
+height: 600px;
+}
+body.tablet .prev{
+    width: 50px;
+    height: 50px;
+}
+body.tablet .prox{
+    width: 50px;
+    height: 50px;
+left: 610px;
+}
+
+body.tablet .logo{
+opacity: 0;
+}
+body.tablet .indicadores{
+top: 755px;
+}
+body.tablet h1{
+left: auto;
+text-align: center;
+font-size: 180%;
+top: 1000px;
+}
+
+
+/*Todos os direitos voltados a Acampamento Capivara
+Site criado por Carlos Augusto Nunes Costa Neto em 2026
+71 98242-1441 | carlosn.developer@gmail.com
+*/
+
