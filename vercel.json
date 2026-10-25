@@ -1,0 +1,8 @@
+{
+"rewrites":[
+{
+"source": "/parceiros",
+"destination": "/Pages/Empresas-Parceiras/enterprises.html"
+}
+]
+}
