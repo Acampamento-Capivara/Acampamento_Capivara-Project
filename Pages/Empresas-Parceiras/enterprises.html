@@ -1,57 +1,448 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Empresas Parceiras - Acampamento Capivara</title>
+
     <link rel="stylesheet" href="enterprises.css">
+
+    <style>
+        /* Botão de pausa */
+        #pausarCarrossel {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 12px;
+            background-color: rgb(250 250 150);
+            cursor: pointer;
+        }
+
+        #pausarCarrossel img {
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Container das setas */
+        .setas {
+            position: absolute;
+            top: 420px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: min(96%, 1700px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        /* Botões das setas */
+        .setas button {
+            display: block;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(205 205 150);
+            cursor: pointer;
+            touch-action: none;
+            pointer-events: auto;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Ícones brancos usando mask, sem filter */
+        .setas button::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+
+            -webkit-mask:
+                url("/Imagens/Arrow_F.svg")
+                center / contain no-repeat;
+
+            mask:
+                url("/Imagens/Arrow_F.svg")
+                center / contain no-repeat;
+
+            pointer-events: none;
+        }
+
+        /* Inverte a seta esquerda */
+        #setaEsquerda::before {
+            transform: rotate(180deg);
+        }
+
+        /* Efeito ao pressionar */
+        .setas button:active {
+            background-color: rgb(180 180 125);
+        }
+
+        #setaEsquerda:active {
+            transform: scale(0.9);
+        }
+
+        #setaDireita:active {
+            transform: scale(0.9);
+        }
+
+        /* Responsividade */
+        @media (max-width: 800px) {
+            .setas {
+                top: 50%;
+                width: calc(100% - 24px);
+            }
+
+            .setas button {
+                width: 44px;
+                height: 44px;
+            }
+        }
+    </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const carrossel = document.querySelector(".cards");
+        const botaoPausa = document.getElementById("pausarCarrossel");
+        const setaEsquerda = document.getElementById("setaEsquerda");
+        const setaDireita = document.getElementById("setaDireita");
+
+        if (
+            !carrossel ||
+            !botaoPausa ||
+            !setaEsquerda ||
+            !setaDireita
+        ) {
+            console.error("Carrossel ou controles não encontrados.");
+            return;
+        }
+
+        /* Evita inicializar o carrossel mais de uma vez */
+        if (carrossel.dataset.iniciado === "true") {
+            return;
+        }
+
+        carrossel.dataset.iniciado = "true";
+
+        const cardsOriginais = Array.from(carrossel.children);
+
+        if (cardsOriginais.length !== 7) {
+            console.error(
+                "O carrossel deveria conter exatamente 7 cards."
+            );
+            return;
+        }
+
+        /* Configuração do carrossel */
+        carrossel.style.display = "flex";
+        carrossel.style.flexFlow = "row nowrap";
+        carrossel.style.overflowX = "auto";
+        carrossel.style.overflowY = "hidden";
+        carrossel.style.scrollBehavior = "auto";
+        carrossel.style.scrollbarWidth = "none";
+
+        cardsOriginais.forEach(card => {
+            card.style.position = "relative";
+            card.style.flex = "0 0 350px";
+            card.style.width = "350px";
+            card.style.minWidth = "350px";
+        });
+
+        /* Duplica os cards para criar o efeito infinito */
+        cardsOriginais.forEach(card => {
+            const copia = card.cloneNode(true);
+
+            copia.setAttribute("aria-hidden", "true");
+
+            copia.querySelectorAll(
+                "a, button, input, select, textarea, [tabindex]"
+            ).forEach(elemento => {
+                elemento.setAttribute("tabindex", "-1");
+            });
+
+            carrossel.appendChild(copia);
+        });
+
+        let pausado = false;
+        let ultimoTempo = 0;
+        let direcaoManual = 0;
+
+        const velocidade = 55;
+        const velocidadeManual = 450;
+
+        const iconePausa = botaoPausa.querySelector("img");
+
+        if (!iconePausa) {
+            console.error(
+                "A imagem do botão de pausa não foi encontrada."
+            );
+            return;
+        }
+
+        /* Pausar e continuar */
+        botaoPausa.addEventListener("click", () => {
+            pausado = !pausado;
+
+            iconePausa.src = pausado
+                ? "/Imagens/Play.svg"
+                : "/Imagens/Pause.svg";
+
+            botaoPausa.setAttribute(
+                "aria-pressed",
+                String(pausado)
+            );
+
+            botaoPausa.setAttribute(
+                "aria-label",
+                pausado
+                    ? "Continuar carrossel"
+                    : "Pausar carrossel"
+            );
+        });
+
+        /* Inicia o movimento manual */
+        function iniciarMovimento(direcao, evento) {
+            if (evento) {
+                evento.preventDefault();
+            }
+
+            direcaoManual = direcao;
+        }
+
+        /* Interrompe o movimento manual */
+        function pararMovimento() {
+            direcaoManual = 0;
+        }
+
+        /* Seta esquerda */
+        setaEsquerda.addEventListener("pointerdown", evento => {
+            iniciarMovimento(-1, evento);
+        });
+
+        /* Seta direita */
+        setaDireita.addEventListener("pointerdown", evento => {
+            iniciarMovimento(1, evento);
+        });
+
+        /* Interrompe ao soltar as setas */
+        [setaEsquerda, setaDireita].forEach(seta => {
+            seta.addEventListener("pointerup", pararMovimento);
+            seta.addEventListener("pointercancel", pararMovimento);
+            seta.addEventListener("lostpointercapture", pararMovimento);
+
+            seta.addEventListener("contextmenu", evento => {
+                evento.preventDefault();
+            });
+        });
+
+        window.addEventListener("pointerup", pararMovimento);
+        window.addEventListener("pointercancel", pararMovimento);
+        window.addEventListener("blur", pararMovimento);
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                pararMovimento();
+            }
+        });
+
+        function animar(tempo) {
+            if (ultimoTempo === 0) {
+                ultimoTempo = tempo;
+            }
+
+            const delta = Math.min(
+                (tempo - ultimoTempo) / 1000,
+                0.05
+            );
+
+            ultimoTempo = tempo;
+
+            const primeiroCard = cardsOriginais[0];
+            const ultimoCard =
+                cardsOriginais[cardsOriginais.length - 1];
+
+            const larguraConjunto =
+                ultimoCard.offsetLeft +
+                ultimoCard.offsetWidth -
+                primeiroCard.offsetLeft;
+
+            if (larguraConjunto > 0) {
+                // As setas funcionam mesmo quando o carrossel está pausado.
+                if (direcaoManual !== 0) {
+                    carrossel.scrollLeft +=
+                        velocidadeManual * direcaoManual * delta;
+                }
+                // A animação automática só funciona quando não está pausada.
+                else if (!pausado) {
+                    carrossel.scrollLeft += velocidade * delta;
+                }
+
+                // Mantém o carrossel em movimento infinito.
+                if (carrossel.scrollLeft >= larguraConjunto) {
+                    carrossel.scrollLeft -= larguraConjunto;
+                } else if (carrossel.scrollLeft < 0) {
+                    carrossel.scrollLeft += larguraConjunto;
+                }
+            }
+
+            requestAnimationFrame(animar);
+        }
+
+        requestAnimationFrame(animar);
+    });
+    </script>
 </head>
+
 <body>
-  <nav>
-    <img class="logo" src="/Imagens/Logo/Logo-sem-fundo.png"></img>
-    <ul>
-    <a href="/index.html">
-        <li class="li1">Início</li>
-    </a>
-    <li class="li2">Quem somos</li>
-    
-    <li class="li3">Sobre</li>
-    
-    <li class="li4">O Local</li>
-    
-    <li class="li6">Empresas Parceiras</li>
-    
-    <li class="li5">Agência Diva</li>
-</ul>
-    <button class="nav-button">Participar</button>
+    <nav>
+        <img
+            class="logo"
+            src="/Imagens/Logo/Logo-sem-fundo.png"
+            alt="Acampamento Capivara"
+        >
 
-</nav>
+        <ul>
+            <a href="/index.html">
+                <li class="li1">Início</li>
+            </a>
 
-<div class="cards">
-<div class="card1">
-    <div class="logo">
+            <li class="li2">Quem somos</li>
+            <li class="li3">Sobre</li>
+            <li class="li4">O Local</li>
+            <li class="li6">Empresas Parceiras</li>
+            <li class="li5">Agência Diva</li>
+        </ul>
+
+        <button class="nav-button">Participar</button>
+    </nav>
+
+    <div class="cards">
+        <div class="card1">
+            <div class="logo"></div>
+
+            <h2>
+                Empresa dedicada a projetos pedagógicos inovadores.
+                Especializada em gincanas personalizadas, que estimulam
+                liderança, empatia, criatividade e diversão
+            </h2>
+
+            <button class="btcard1">Ver mais</button>
+        </div>
+
+        <div class="card2">
+            <div class="logo"></div>
+
+            <h2>
+                O Gdance promove saúde, autoestima, cultura e inclusão
+                por meio da dança. Com atuação no Brasil, EUA e Canadá,
+                começou em 2009 com um diferencial: Diversão, bem-estar
+                e integração social.
+            </h2>
+
+            <button>Ver mais</button>
+        </div>
+
+        <div class="card3">
+            <div class="logo"></div>
+
+            <h2>
+                No campo do Acampamento Capivara, a bola vai rolar com
+                a metodologia da Fundação Real Madrid. Corpo docente
+                da Arena Real, situada no Shopping da Bahia. Treinos
+                e diversão com o selo do maior clube do mundo!
+            </h2>
+
+            <button>Ver mais</button>
+        </div>
+
+        <div class="card4">
+            <div class="logo"></div>
+
+            <h2>
+                Líder em APH no Norte/Nordeste, a Vitalmed possui mais
+                de 100 mil associados, 850 colaboradores, presente em
+                diversos estados. Cada acampante terá ficha médica e
+                dados de plano de saúde registrados. Segurança total
+                com quem mais entende de atendimento em eventos.
+            </h2>
+
+            <button>Ver mais</button>
+        </div>
+
+        <div class="card5">
+            <div class="logo"></div>
+
+            <h2>
+                Responsável pela comercialização das inscrições e
+                atendimento aos pais. Uma das agências mais tradicionais
+                da Bahia, especializada em viagens para jovens e
+                adolescentes. Em 2025, levou 19 ônibus para a Disney,
+                consolidando-se como a maior agência Disney do Brasil.
+                Atendimento presencial na sede do Itaigara.
+            </h2>
+
+            <button>Ver mais</button>
+        </div>
+
+        <div class="card6">
+            <div class="logo"></div>
+
+            <h2>
+                O Grupo Stripulia, fundado em Salvador (Bahia) em 2003,
+                é um coletivo dedicado ao teatro infanto/juvenil e à
+                animação cultural, focado em encenações que mesclam
+                mensagens educativas, música e muita interação.
+            </h2>
+
+            <button>Ver mais</button>
+        </div>
+
+        <div class="card7">
+            <h1 class="logo">TIO LÉO</h1>
+
+            <h2>
+                Educa e inspira crianças e jovens através do esporte,
+                promovendo o desenvolvimento físico, emocional e social.
+                24 anos de experiência em Educação Física, liderando a
+                formação integral de alunos e atletas, valorizando a
+                disciplina, o trabalho em equipe e a superação.
+            </h2>
+
+            <button>Ver mais</button>
+        </div>
     </div>
-    <h2>Empresa dedicada a projetos pedagógicos inovadores. Especializada em gincanas personalizadas, que estimulam liderança, empatia,  criatividade e diversão</h2>
-    <button class="btcard1">Ver mais</button>
-</div>
-<div class="card2">
-    <div class="logo">
-    </div>
-    <h2>O Gdance promove saúde, autoestima, cultura e inclusão por meio da dança. Com atuação no Brasil, EUA e Canadá, começou em 2009 com um diferencial: Diversão, bem-estar e integração social.</h2>
-    <button>Ver mais</button>
-</div>
-<div class="card3">
-    <div class="logo">
-    </div>
-    <h2>No campo do Acampamento Capivara, a bola vai
-rolar com a metodologia da Fundação Real Madrid.
-Corpo docente da Arena Real, situada no Shopping
-da Bahia. Treinos e diversão com o selo do maior
-clube do mundo!</h2>
-    <button>Ver mais</button>
-</div>
 
+    <!-- Botão de pausa -->
+    <button
+        id="pausarCarrossel"
+        type="button"
+        aria-label="Pausar carrossel"
+        aria-pressed="false"
+    >
+        <img src="/Imagens/Pause.svg" alt="">
+    </button>
 
-</div>
+    <div class="setas" aria-label="Controles de navegação do carrossel">
+        <button
+            id="setaEsquerda"
+            type="button"
+            aria-label="Mover para a esquerda"
+        ></button>
+
+        <button
+            id="setaDireita"
+            type="button"
+            aria-label="Mover para a direita"
+        ></button>
+    </div>
 </body>
 </html>
