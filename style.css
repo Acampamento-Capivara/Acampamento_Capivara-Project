@@ -188,10 +188,10 @@ h2 {
 }
 
 nav.nav-celular {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.09);
     width: 280px;
     left: auto;
-    height: 75px;
+    height: 85px;
     margin-top: 12px;
     border-radius: 30px;
 }
@@ -202,7 +202,7 @@ nav.nav-celular {
     background-color: rgb(205 205 150);
     position: fixed;
     left: 130px;
-    top: 35px;
+    top: 40px;
     transition: transform .3s ease;
 }
 

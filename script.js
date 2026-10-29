@@ -216,35 +216,37 @@ document.addEventListener('DOMContentLoaded', verificarTela);
 window.addEventListener('resize', verificarTela);
 
 
-// =========================
-// MENU HAMBÚRGUER
-// =========================
 
-function activateOthers(){
-  const nav = document.querySelector('nav');
-  const others = document.getElementById('others');
-  const li1 = document.querySelector('.li1');
-  const li2 = document.querySelector('.li2');
-  const li3 = document.querySelector('.li3');
-  const li4 = document.querySelector('.li4');
-  const li5 = document.querySelector('.li5');
-  const li6 = document.querySelector('.li6');
-  const ul = document.querySelector('ul');
-  const nav_button = document.querySelector('nav button');
+function activateOthers() {
+    const nav = document.querySelector('nav');
+    const others = document.querySelector('.others');
+    const ul = document.querySelector('ul');
+    const navButton = document.querySelector('nav button');
+    const itensLi = document.querySelectorAll('ul li');
 
-  others.addEventListener('click', () => {
-    console.log("click");
-    others.classList.toggle('ativado');
-    ul.classList.toggle('ativado');
-    nav.classList.toggle('ativado');
-    li1.classList.toggle('ativado');
-    li2.classList.toggle('ativado');
-    li3.classList.toggle('ativado');
-    li4.classList.toggle('ativado');
-    li5.classList.toggle('ativado');
-    li6.classList.toggle('ativado');
-    ul.style.opacity = "1";
+    if (!nav || !others || !ul) {
+        console.error('Elemento do menu não encontrado!');
+        return;
+    }
 
-    nav_button.classList.toggle('ativado');
-  });
+    others.addEventListener('click', () => {
+        console.log('CLIQUE DETECTADO');
+
+        const abrir = !others.classList.contains('ativado');
+
+        others.classList.toggle('ativado', abrir);
+        nav.classList.toggle('ativado', abrir);
+        ul.classList.toggle('ativado', abrir);
+        ul.style.opacity = '1';
+
+        itensLi.forEach(li => {
+            li.classList.toggle('ativado', abrir);
+        });
+
+        if (navButton) {
+            navButton.classList.toggle('ativado', abrir);
+        }
+    });
 }
+
+document.addEventListener('DOMContentLoaded', activateOthers);
