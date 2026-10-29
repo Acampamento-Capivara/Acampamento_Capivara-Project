@@ -40,7 +40,7 @@ border-radius: 20px;
 left: 100px;
 backdrop-filter: blur(5px);
 }
-.logo{
+.logo-nav{
 width: 100px;
 height: 100px;
 position: absolute;
@@ -130,6 +130,8 @@ ul li:hover::after{
     width: 350px;
     height: 600px;
     box-sizing: border-box;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 a{
@@ -254,6 +256,7 @@ top: 240px;
 left: 28px;
 border-radius: 15px;
 backdrop-filter: blur(1.4px);
+transform: translateZ(0); /* Evita o bug de redesenho no mobile */
 }
 .card2{
 
@@ -373,6 +376,7 @@ top: 242px;
 left: 25px;
 border-radius: 15px;
 backdrop-filter: blur(1.2px);
+transform: translateZ(0); /* Evita o bug de redesenho no mobile */
 }
 .card3{
 
@@ -492,6 +496,7 @@ top: 230px;
 left: 23px;
 border-radius: 15px;
 backdrop-filter: blur(1.2px);
+transform: translateZ(0); /* Evita o bug de redesenho no mobile */
 }
 .card4 {
     position: absolute;
@@ -617,6 +622,7 @@ left: 15px;
 border-radius: 15px;
 backdrop-filter: blur(1.1px);
 pointer-events: none;
+transform: translateZ(0); /* Evita o bug de redesenho no mobile */
 }
 
 .card5 {
@@ -750,6 +756,7 @@ left: 15px;
 border-radius: 15px;
 backdrop-filter: blur(0.8px);
 pointer-events: none;
+transform: translateZ(0); /* Evita o bug de redesenho no mobile */
 }
 
 .card6 {
@@ -876,6 +883,7 @@ left: 15px;
 border-radius: 15px;
 backdrop-filter: blur(1.4px);
 pointer-events: none;
+transform: translateZ(0); /* Evita o bug de redesenho no mobile */
 }
 
 .card7 {
@@ -969,7 +977,7 @@ color: white;
     height: 200px;
 top: 45px;
 font-family: 'Poppins';
-left: 50px;
+left: 80px;
 font-size: 300%;
 pointer-events: none;
 }
@@ -998,6 +1006,7 @@ top: 225px;
 left: 20px;
 border-radius: 15px;
 backdrop-filter: blur(0.9px);
+transform: translateZ(0); /* Evita o bug de redesenho no mobile */
 }
 #pausarCarrossel {
     position: absolute;
@@ -1058,4 +1067,90 @@ transform: scale(0.9);
 }
 #setaEsquerda:active{
 transform: scale(0.9) rotate(180deg);
+}
+/* Resize */
+
+body.celular{
+    background-size: 500%;
+    background-position: -300px 0px;
+
+}
+body.celular .cards{
+    left: 215px;
+    width: 420px;
+    top: 190px;
+}
+body.celular .setas{
+    opacity: 0;
+}
+body.celular nav{
+    background-color: rgba(255, 255, 255, 0.09);
+    width: 280px;
+    left: auto;
+    height: 85px;
+    margin-top: 12px;
+    border-radius: 30px;
+}
+body.celular .logo-nav{
+    opacity: 0;
+
+}
+body.celular .card1::before{
+backdrop-filter: none !important;
+}
+body.celular .card2::before{
+backdrop-filter: none !important;
+}
+body.celular .card3::before{
+backdrop-filter: none !important;
+}
+body.celular .card4::before{
+backdrop-filter: none !important;
+}
+body.celular .card5::before{
+backdrop-filter: none !important;
+}
+body.celular .card6::before{
+backdrop-filter: none !important;
+}
+body.celular .card7::before{
+backdrop-filter: none !important;
+}
+.others {
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: fixed;
+    left: auto;
+    top: 57px;
+    transition: transform .3s ease;
+}
+
+.others::before,
+.others::after {
+    content: "";
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: absolute;
+    left: auto;
+
+}.others::before {
+    top: -11px;
+}
+
+.others::after {
+    top: 11px;
+}
+.others.ativado{
+    transform: rotate(90deg);
+}
+body:has(.others.ativado) nav{
+  height: 300px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(2px);
+    transition: height .3s ease-in-out, rgba .3s ease-in-out;
+    left: auto;
+
 }
