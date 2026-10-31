@@ -11,6 +11,10 @@
 {
 "source": "/redirecionar",
 "destination": "/Pages/Redirecionar/redirecionar.html"
+},
+{
+"source": "/gdance",
+"destination": "/Pages/Redirecionar/gdance.html"
 }
 ]
 }
