@@ -1,7 +1,7 @@
 const parametros = new URLSearchParams(window.location.search);
 
 if (parametros.has('gdance')) {
-    window.location.href = 'https://acampamentocapivara/gdance';
+    window.location.href = 'https://acampamentocapivara.com.br/gdance';
 }
 
 else if (parametros.has('arenareal')) {
