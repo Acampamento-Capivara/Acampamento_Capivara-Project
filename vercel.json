@@ -3,6 +3,14 @@
 {
 "source": "/parceiros",
 "destination": "/Pages/Empresas-Parceiras/enterprises.html"
+},
+{
+"source": "/",
+"destination": "/index.html"
+},
+{
+"source": "/redirecionar?Gdance",
+"destination": "/Pages/Redirecionar/gdance.html"
 }
 ]
 }
