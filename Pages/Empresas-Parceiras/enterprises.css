@@ -1086,7 +1086,7 @@ mask-repeat: no-repeat;
 transform: scale(0.9);
 }
 #setaEsquerda:active{
-transform: scale(0.9) rotate(180deg);
+transform: rotate(180deg) scale(0.9);
 }
 /* Resize */
 
