@@ -9,8 +9,8 @@
 "destination": "/index.html"
 },
 {
-"source": "/redirecionar?gdance",
-"destination": "/Pages/Redirecionar/gdance.html"
+"source": "/redirecionar",
+"destination": "/Pages/Redirecionar/redirecionar.html"
 }
 ]
 }
