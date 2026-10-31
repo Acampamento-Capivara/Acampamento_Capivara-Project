@@ -15,6 +15,26 @@
 {
 "source": "/gdance",
 "destination": "/Pages/Redirecionar/gdance.html"
+},
+{
+"source": "/arenareal",
+"destination": "/Pages/Redirecionar/arenareal.html"
+},
+{
+"source": "/vitalmed",
+"destination": "/Pages/Redirecionar/vitalmed.html"
+},
+{
+"source": "/happy",
+"destination": "/Pages/Redirecionar/happy.html"
+},
+{
+"source": "/stripulia",
+"destination": "/Pages/Redirecionar/stripulia.html"
+},
+{
+"source": "/local",
+"destination": "/Pages/Local/local.html"
 }
 ]
 }
