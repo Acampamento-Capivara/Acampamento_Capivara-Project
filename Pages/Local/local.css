@@ -11,7 +11,7 @@ body {
     justify-content: center;
 align-items: center;
 height: 98vh;
-
+overflow-x: hidden;
 
 }
 .image{
@@ -158,53 +158,19 @@ h2{
     font-size: 130%;
     top: 350px;
 }
-.avaliacao1{
+
+.stars div{
     width: 25px;
     height: 25px;
     mask-image: url('/Imagens/stars.svg');
     background-color: rgb(205 205 100);
 mask-size: cover;
 mask-position: center;
-position: absolute;
-left: 440px;
-top:524px;
+position: relative;
+
+
 -webkit-mask-image: url('/Imagens/stars.svg');
-}
-.avaliacao2{
-    width: 25px;
-    height: 25px;
-    mask-image: url('/Imagens/stars.svg');
-    background-color: rgb(205 205 100);
-mask-size: cover;
-mask-position: center;
-position: absolute;
-left: 464px;
-top: 524px;
--webkit-mask-image: url('/Imagens/stars.svg');
-}
-.avaliacao3{
-    width: 25px;
-    height: 25px;
-    mask-image: url('/Imagens/stars.svg');
-    background-color: rgb(205 205 100);
-mask-size: cover;
-mask-position: center;
-position: absolute;
-left: 488px;
-top: 524px;
--webkit-mask-image: url('/Imagens/stars.svg');
-}
-.avaliacao4{
-    width: 25px;
-    height: 25px;
-    mask-image: url('/Imagens/stars.svg');
-    background-color: rgb(205 205 100);
-mask-size: cover;
-mask-position: center;
-position: absolute;
-left: 512px;
-top: 524px;
--webkit-mask-image: url('/Imagens/stars.svg');
+
 }.avaliacao5{
     width: 25px;
     height: 25px;
@@ -212,9 +178,8 @@ top: 524px;
     background-color: rgb(205 205 100);
 mask-size: cover;
 mask-position: center;
-position: absolute;
-left: 535px;
-top: 524px;
+position: relative;
+
 -webkit-mask-image: url('/Imagens/star_half.svg');
 }
 .site{
@@ -287,4 +252,133 @@ justify-content: center;
     
     content: "";
 
+}
+.stars{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    position: absolute;
+    left: 442px;
+    top: 523px;
+}
+body.celular{
+    background-size: 390%;
+overflow-x: hidden;
+touch-action: none;
+}
+body.celular h1{
+    left: auto;
+    width: 400px;
+    text-align: center;
+line-height: 49px;
+top: 160px;
+}
+body.celular nav{
+    left: auto;
+    width: 340px;
+    height: 90px;
+}
+body.celular .logo{
+    opacity: 0;
+}
+body.celular .local{
+    top: 143px;
+    left: 184px;
+
+}
+body.celular h2{
+    left: auto;
+    font-size: 100%;
+    width: 340px;
+    text-align: center;
+    top: 320px;
+}
+body.celular ul{
+    opacity: 0;
+}
+body.celular button{
+    opacity: 0;
+}
+body.celular .image{
+    left: auto;
+    width: 380px;
+    height: 210px;
+    top: 600px;
+}
+body.celular iframe{
+    left: auto;
+    width: 330px;
+    height: 60px;
+    top: 730px;
+border-radius: 18px;
+}
+
+body.celular .site{
+    left: 130px;
+    position: absolute;
+border-radius: 16px;
+width: 50px;
+height: 50px;
+top: 523px;
+}
+body.celular .site::after{
+    left: 10px;
+    position: absolute;
+width: 30px;
+height: 30px;
+}
+body.celular .instagram{
+    left: 190px;
+    position: absolute;
+border-radius: 16px;
+width: 50px;
+height: 50px;
+top: 523px;
+}
+body.celular .instagram::after{
+    left: 10px;
+    position: absolute;
+
+width: 30px;
+height: 30px;
+mask-size: 80%;
+mask-repeat: no-repeat;
+}
+body.celular .facebook{
+    left: 250px;
+    position: absolute;
+border-radius: 16px;
+width: 50px;
+height: 50px;
+top: 522px;
+}
+body.celular .facebook::after{
+    left: 10px;
+    position: absolute;
+
+width: 30px;
+height: 30px;
+}
+body.celular .stars{
+left:150px;
+top: 830px;}
+.others{
+
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: fixed;
+    left: 130px;
+    top: 40px;
+    transition: transform .3s ease;
+}
+.others::after{
+content: "";
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    transition: transform .3s ease;
 }
