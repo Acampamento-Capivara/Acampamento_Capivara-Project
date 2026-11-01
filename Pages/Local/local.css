@@ -363,6 +363,8 @@ height: 30px;
 body.celular .stars{
 left:150px;
 top: 830px;}
+body.celular .others{
+opacity: 1;}
 .others{
 
     width: 30px;
