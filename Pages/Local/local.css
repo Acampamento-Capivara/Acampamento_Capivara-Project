@@ -277,13 +277,14 @@ body.celular nav{
     left: auto;
     width: 340px;
     height: 90px;
+    justify-content: center;
 }
 body.celular .logo{
     opacity: 0;
 }
 body.celular .local{
-    top: 143px;
-    left: 184px;
+    top: 134px;
+    left: 192px;
 
 }
 body.celular h2{
@@ -368,7 +369,7 @@ top: 830px;}
     height: 5px;
     background-color: rgb(205 205 150);
     position: fixed;
-    left: 130px;
+    left: auto;
     top: 40px;
     transition: transform .3s ease;
 }
@@ -377,8 +378,99 @@ content: "";
     width: 30px;
     height: 5px;
     background-color: rgb(205 205 150);
-    position: fixed;
-    left: 0px;
-    top: 0px;
+    position: absolute;
+top: 10px;
+left: 0;
     transition: transform .3s ease;
+}
+.others::before{
+content: "";
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: absolute;
+top: -10px;
+left: 0;
+    transition: transform .3s ease;
+}
+.others.ativado{
+    transform: rotate(90deg);
+    background-color: rgb(175 175 130);
+}
+.others.ativado::after{
+ 
+    background-color: rgb(175 175 130);
+}
+.others.ativado::before{
+ 
+    background-color: rgb(175 175 130);
+}
+body:has(.others.ativado) nav{
+     height: 300px;
+    z-index: 1;
+    background-color: rgb(205 205 150);
+    backdrop-filter: blur(2px);
+    transition: height .3s ease-in-out, rgba .3s ease-in-out;
+    left: auto;
+}
+body:has(.others.ativado) ul{
+    opacity: 1;
+    left: 25px;
+    top: 30px;
+}
+
+body:has(.others.ativado) .li1 {
+    top: 40px;
+    position: absolute;
+    left: 31px;
+}
+body:has(.others.ativado) li {
+    color: rgb(0, 70, 80);
+}
+
+
+body:has(.others.ativado) .li2 {
+    top: 85px;
+    position: absolute;
+    left: 31px;
+    width: 200px;
+}
+body:has(.others.ativado) .li4::after {
+   background-color: rgb(0, 70, 80);
+   width: 60px;
+}
+
+body:has(.others.ativado) .li3 {
+    top: 134px;
+    position: absolute;
+    left: 31px;
+    width: 1px;
+}
+
+body:has(.others.ativado) .li4 {
+    top: 86px;
+    position: absolute;
+    left: 180px;
+    width: 100px;
+}
+
+body:has(.others.ativado) .li5  {
+    top: 133px;
+    position: absolute;
+    left: 150px;
+    width: 200px;
+}
+
+body:has(.others.ativado) .li6  {
+    top: 40px;
+    position: absolute;
+    left: 80px;
+    text-align: center;
+    width: 200px;
+}
+body:has(.others.ativado) .nav-button  {
+    top: 230px;
+    background-color: rgb(0, 70, 80);
+    opacity: 1;
+    left:120px;
 }

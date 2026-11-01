@@ -13,3 +13,11 @@ else{
 }
 window.addEventListener('resize', verificarTela);
 window.addEventListener('DOMContentLoaded', verificarTela);
+
+const others = document.querySelector('.others');
+others.addEventListener('click', () => {
+others.classList.toggle('ativado');
+
+});
+
+
