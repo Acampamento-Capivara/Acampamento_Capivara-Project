@@ -372,6 +372,7 @@ top: 830px;}
     left: auto;
     top: 40px;
     transition: transform .3s ease;
+    opacity:0;
 }
 .others::after{
 content: "";
@@ -396,6 +397,7 @@ left: 0;
 .others.ativado{
     transform: rotate(90deg);
     background-color: rgb(175 175 130);
+    opacity:1;
 }
 .others.ativado::after{
  
