@@ -41,7 +41,7 @@ justify-content: center;
 background-size: 100%;
 background-repeat: no-repeat;
 position: absolute;
-margin-top: 80px;
+margin-top: 0px;
 top: 0;
 }
 .card1, .card2, .card3, .card4{
@@ -153,7 +153,26 @@ transition:background-color .3s ease;
 .card4:hover::after{
     background-color: rgb(0 90 70);
 }
+body.celular{
+ background-size: 400%;   
+}
 
     </style>
+        <script>
+const largura = document.documentElement.clientWidth;
+const body = document.querySelector('body');
+console.log(largura)
+function verificarTela(){
+if(largura < 600){
+    body.classList.add('celular');
+}
+else{
+    body.classList.remove('celular');
+}
+}
+
+window.addEventListener('resize', verificarTela);
+window.addEventListener('DOMContentLoaded', verificarTela);
+</script>
 </body>
 </html>

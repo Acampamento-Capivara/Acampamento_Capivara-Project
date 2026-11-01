@@ -158,7 +158,47 @@ transition:background-color .3s ease;
 .card4:hover::after{
     background-color: rgb(0 90 70);
 }
+body.celular{
+ background-size: 400%;
+ background-position: 1600px;
+}
+body.celular .cards{
+display: grid;
+grid-template-columns: repeat(2, 2fr);
+top: 310px;
+gap: 70px;
+}
+body.celular .cards div{
+    width: 100px;
+    height: 100px;
+}
+body.celular .cards div::after{
+    width: 60px;
+    height: 60px;
+    top: 20px;
+    left: 20px;
+}
+body.celular .card4{
+    width: 70px;
+    height: 70px;
+}
 
     </style>
+    <script>
+const largura = document.documentElement.clientWidth;
+const body = document.querySelector('body');
+console.log(largura)
+function verificarTela(){
+if(largura < 600){
+    body.classList.add('celular');
+}
+else{
+    body.classList.remove('celular');
+}
+}
+
+window.addEventListener('resize', verificarTela);
+window.addEventListener('DOMContentLoaded', verificarTela);
+</script>
 </body>
 </html>
