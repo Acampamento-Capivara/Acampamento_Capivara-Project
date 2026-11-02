@@ -1,11 +1,60 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://acampamentocapivara.gt.tc/</loc>
-        <lastmod>2026-10-02</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
+        <loc>https://www.acampamentocapivara.com.br/</loc>
+    </url>
+
+    <url>
+        <loc>https://www.acampamentocapivara.com.br/parceiros</loc>
+    </url>
+
+    <url>
+        <loc>https://www.acampamentocapivara.com.br/local</loc>
+    </url>
+
+    <url>
+        <loc>https://www.acampamentocapivara.com.br/arenareal</loc>
+    </url>
+
+    <url>
+        <loc>https://www.acampamentocapivara.com.br/gdance</loc>
+    </url>
+
+    <url>
+        <loc>https://www.acampamentocapivara.com.br/happy</loc>
+    </url>
+  
+    <url>
+        <loc>https://www.acampamentocapivara.com.br/stripulia</loc>
+    </url>
+
+    <url>
+        <loc>https://www.acampamentocapivara.com.br/vitalmed</loc>
+    </url>
+
+  <url>
+        <loc>https://www.acampamentocapivara.com.br/redirecionar?arenareal</loc>
+    </url>
+
+  <url>
+        <loc>https://www.acampamentocapivara.com.br/redirecionar?gdance</loc>
+    </url>
+
+  <url>
+        <loc>https://www.acampamentocapivara.com.br/redirecionar?happy</loc>
+    </url>
+
+  <url>
+        <loc>https://www.acampamentocapivara.com.br/redirecionar?vitalmed</loc>
+    </url>
+
+  <url>
+        <loc>https://www.acampamentocapivara.com.br/redirecionar</loc>
+    </url>
+  <url>
+        <loc>https://www.acampamentocapivara.com.br/404</loc>
     </url>
 
 </urlset>
