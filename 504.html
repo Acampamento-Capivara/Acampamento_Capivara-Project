@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Not Found</title>
+</head>
+<body>
+<div class="logo"></div>
+    <h1>504 Error - Gateway Timeout</h1>
+<h2>O servidor demorou demasiado tempo para completar a aquisição, por favor, clique no botão acima para voltar para o site.</h2>
+<a href="https://acampamentocapivara.com.br">
+<button>Página inicial</button>
+</a>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+body{
+    background-image: url(/Imagens/Background3.png);
+display: flex;
+justify-content: center;
+background-size: cover;
+}
+h2{
+font-family: 'Poppins';
+font-weight: 500;
+color: rgb(200 200 130);
+font-size: 130%;
+bottom: 70px;
+position: absolute;
+}
+h1{
+font-family: 'Poppins';
+font-weight: 500;
+color: rgb(200 200 130);
+font-size: 330%;
+top: 280px;
+position: absolute;
+}
+.logo{
+    width: 200px;
+    height: 200px;
+    background-image: url('/Imagens/Logo/Logo-sem-fundo.png');
+    position: absolute;
+    left: auto;
+    background-size: cover;
+    top: 120px;
+}
+button{
+width: 170px;
+height: 55px;
+background-color: rgb(200 200 130);
+border: none;
+font-family: 'Poppins';
+font-weight: 700;
+border-radius: 15px;
+color: rgb(0 70 80);
+font-size: 87%;
+bottom: 200px;
+left: 870px;
+position: absolute;
+}
+body.celular{
+background-size: 390%;    
+}
+body.celular h1{
+  font-size: 150%;
+left: 40px;
+}
+body.celular h2{
+  font-size: 120%;
+left: 50px;
+width: 330px;
+text-align: center;
+bottom: 110px;
+}
+body.celular .logo{
+   top: 100px;
+   left: 110px; 
+}
+body.celular button{
+   top: 460px;
+   left: 130px; 
+}
+</style>
+<script>
+function verificarTela(){
+const largura = document.documentElement.clientWidth;
+const body = document.querySelector('body');
+console.log(largura);
+if(largura < 600){
+body.classList.add('celular');
+}
+else{
+body.classList.remove('celular');
+
+}
+}
+
+window.addEventListener('resize', verificarTela);
+window.addEventListener('DOMContentLoaded', verificarTela);
+</script>
+
+</body>
+</html>
