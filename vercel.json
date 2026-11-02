@@ -35,6 +35,14 @@
 {
 "source": "/local",
 "destination": "/Pages/Local/local.html"
+},
+{
+"source": "/404",
+"destination": "/404.html"
+},
+{
+"source": "/504",
+"destination": "/504.html"
 }
 ]
 }
