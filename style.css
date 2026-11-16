@@ -226,6 +226,13 @@ nav.nav-celular {
 
 .others.ativado {
     transform: rotate(90deg);
+  background-color: rgb(185 185 150);
+}
+.others.ativado::after{
+  background-color: rgb(185 185 150);
+}
+.others.ativado::before{
+      background-color: rgb(185 185 150);
 }
 
 nav.ativado {
