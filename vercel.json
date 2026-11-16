@@ -1,0 +1,56 @@
+{
+"rewrites":[
+{
+"source": "/parceiros",
+"destination": "/Pages/Empresas-Parceiras/enterprises.html"
+},
+{
+"source": "/",
+"destination": "/index.html"
+},
+{
+"source": "/redirecionar",
+"destination": "/Pages/Redirecionar/redirecionar.html"
+},
+{
+"source": "/gdance",
+"destination": "/Pages/Redirecionar/gdance.html"
+},
+{
+"source": "/arenareal",
+"destination": "/Pages/Redirecionar/arenareal.html"
+},
+{
+"source": "/vitalmed",
+"destination": "/Pages/Redirecionar/vitalmed.html"
+},
+{
+"source": "/happy",
+"destination": "/Pages/Redirecionar/happy.html"
+},
+{
+"source": "/stripulia",
+"destination": "/Pages/Redirecionar/stripulia.html"
+},
+{
+"source": "/local",
+"destination": "/Pages/Local/local.html"
+},
+{
+"source": "/404",
+"destination": "/404.html"
+},
+{
+"source": "/504",
+"destination": "/504.html"
+},
+{
+"source": "/sobre",
+"destination": "/Pages/Sobre/sobre.html"
+},
+{
+"source": "/agenciadiva",
+"destination": "/Pages/Agencia-Diva/agenciadiva.html"
+}
+]
+}

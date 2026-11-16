@@ -1,0 +1,398 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+
+body {
+    background-image: url(/Imagens/Background3.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 100%;
+    background-clip: initial;
+    display: flex;
+    justify-content: center;
+}
+
+
+ul {
+    display: flex;
+    gap: 20px;
+    position: fixed;
+    left: 740px;
+    top: 20px;
+    transition: opacity .2s ease-in-out;
+    z-index: 10;
+}
+
+ul li {
+    font-family: 'Poppins';
+    color: rgb(234 212 166);
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(95%);
+    width: 1700px;
+    height: 100px;
+    position: absolute;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    left: 100px;
+    backdrop-filter: blur(5px);
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 5px;
+    margin-left: 30px;
+    opacity: 1;
+
+}
+
+nav button {
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    font-family: 'Poppins';
+    color: rgb(205 205 150);
+    font-weight: 700;
+    left: 1560px;
+    font-size: 80%;
+    transition: background-color .3s ease;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+}
+
+li {
+    text-decoration: none;
+}
+a{text-decoration: none;}
+.li6 {
+    text-decoration: none;
+}
+
+ul li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: rgb(205 205 150);
+    bottom: -1px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+ul li:hover::after {
+    width: 100%;
+}
+
+.li5::after{
+    width: 100%;
+}
+.logo-diva{
+    width: 330px;
+    height: 330px;
+mask-image: url('/Imagens/Logo/diva.svg');
+mask-repeat: no-repeat;
+mask-position: 10px -50px;
+background-color: rgb(205 205 150);
+position:absolute;
+top: 250px;
+left: 300px;
+}
+h1{
+    color: rgb(205 205 150);
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 94%;
+    width: 400px;
+    position: fixed;
+    left: 330px;
+top: 440px;
+}
+.redes{
+    width: 370px;
+    height: 370px;
+    background-color: rgb(0, 70, 40);
+    border-radius: 30px;
+position: absolute;
+top: 280px;
+left: 1160px;
+display: grid;
+grid-template-columns: repeat(2, 2fr);
+overflow: visible;
+}
+.redes div{
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0, 75, 33);
+    border-radius: 30px;
+position: relative;
+margin: 12px 12px;
+border: 5px solid rgb(205 205 150); 
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: width .3s ease, height .3s ease-in-out, opacity .3s ease;
+}
+
+.rede1::after{
+    content: "";
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    background-color: rgb(205 205 150);
+mask-image: url('/Imagens/local.svg');
+mask-repeat: no-repeat;
+opacity: 1;
+mask-size: cover;
+cursor: pointer;
+}
+.rede2::after{
+    content: "";
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    background-color: rgb(205 205 150);
+mask-image: url('/Imagens/Logo_Instagram.png');
+mask-repeat: no-repeat;
+mask-size: cover;
+cursor: pointer;
+opacity: 1;
+}
+.rede3::after{
+    content: "";
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    background-color: rgb(205 205 150);
+mask-image: url('/Imagens/Logo_Facebook.png');
+mask-repeat: no-repeat;
+mask-size: 130%;
+mask-position: -7px;
+cursor: pointer;
+opacity: 1;
+}
+.rede4::after{
+    content: "";
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    background-color: rgb(205 205 150);
+mask-image: url('/Imagens/linktree.svg');
+mask-repeat: no-repeat;
+mask-size: 80%;
+left: 55px;
+cursor: pointer;
+opacity: 1;
+}
+.rede1.click {
+    width: 335px;
+    height: 340px;
+    
+    z-index: 5;
+    top: 0;
+    left: 0;
+}
+body:has(.rede1.click) .rede2{
+    opacity: 0;
+}
+body:has(.rede1.click) .rede3{
+    opacity: 0;
+}
+body:has(.rede1.click) .rede4{
+    opacity: 0;
+}
+.rede1.click iframe{
+    opacity: 1;
+}
+.rede1.click h2{
+    opacity: 1;
+}
+.rede1.click h1{
+
+    opacity: 1;
+}
+.rede1.click::after{
+    width: 35px;
+    top: 16px;
+    height: 35px;
+    
+}
+.rede1 h2{
+    font-family: 'Poppins';
+    top: 278px;
+    position: absolute;
+    color: rgb(205 205 150);
+    font-size: 100%;
+opacity: 0;
+}
+iframe{
+    width: 300px;
+    position: absolute;
+    opacity: 0;
+height: 200px;
+border-radius: 25px;
+pointer-events: none;
+transition: left .3s ease;
+left: 16px;
+top: 69px;
+transition: opacity .3s ease;
+}
+.rede2.click {
+    width: 335px;
+    height: 340px;
+    
+    z-index: 5;
+    top: 0;
+    left: -182px;
+}
+body:has(.rede2.click) .rede1{
+    opacity: 0;
+}
+body:has(.rede2.click) .rede3{
+    opacity: 0;
+}
+body:has(.rede2.click) .rede4{
+    opacity: 0;
+}
+.rede2.click::after{
+    top: 110px;
+    width: 40px;
+height: 40px;
+pointer-events: none;
+}
+.rede2 .clicaa2{
+    content: "";
+    width: 230px;
+    height: 150px;
+    position: absolute;
+    background-color: transparent;
+    pointer-events: none;
+    border: none;
+}
+.rede2 h2{
+    font-family: 'Poppins';
+    color: rgb(200, 200, 150);
+    font-size: 120%;
+    font-weight: 500;
+    top: 160px;
+    position: absolute;
+    opacity: 0;
+}
+.rede2.click h2{
+    opacity: 1;
+}
+.rede2.click .clicaa2{
+    pointer-events: all;
+}
+.rede3.click {
+    width: 335px;
+    height: 340px;
+    
+    z-index: 5;
+    top: -187px;
+    left: 0px;
+}
+body:has(.rede3.click) .rede1{
+    opacity: 0;
+}
+body:has(.rede3.click) .rede2{
+    opacity: 0;
+}
+body:has(.rede3.click) .rede4{
+    opacity: 0;
+}
+.rede3.click::after{
+    top: 110px;
+    width: 40px;
+height: 40px;
+pointer-events: none;
+}
+.rede3 .clicaa3{
+    content: "";
+    width: 230px;
+    height: 150px;
+    position: absolute;
+    background-color: transparent;
+    pointer-events: none;
+    border: none;
+}
+.rede3 h2{
+    font-family: 'Poppins';
+    color: rgb(200, 200, 150);
+    font-size: 120%;
+    font-weight: 500;
+    top: 160px;
+    position: absolute;
+    opacity: 0;
+}
+.rede3.click h2{
+    opacity: 1;
+}
+.rede3.click .clicaa3{
+    pointer-events: all;
+}
+
+.rede4.click {
+    width: 335px;
+    height: 340px;
+    
+    z-index: 5;
+    top: -187px;
+    left: -182px;
+}
+body:has(.rede4.click) .rede1{
+    opacity: 0;
+}
+body:has(.rede4.click) .rede2{
+    opacity: 0;
+}
+body:has(.rede4.click) .rede3{
+    opacity: 0;
+}
+.rede4.click::after{
+    top: 110px;
+    width: 40px;
+height: 40px;
+pointer-events: none;
+left: 150px;
+}
+.rede4 .clicaa4{
+    content: "";
+    width: 230px;
+    height: 150px;
+    position: absolute;
+    background-color: transparent;
+    pointer-events: none;
+    border: none;
+}
+.rede4 h2{
+    font-family: 'Poppins';
+    color: rgb(200, 200, 150);
+    font-size: 120%;
+    font-weight: 500;
+    top: 160px;
+    position: absolute;
+    opacity: 0;
+}
+.rede4.click h2{
+    opacity: 1;
+}
+.rede4.click .clicaa4{
+    pointer-events: all;
+}
