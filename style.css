@@ -404,6 +404,7 @@ ul li:hover::after {
 .li5.ativado,
 .li6.ativado {
     opacity: 1;
+    color:rgb(0, 90, 70);
 }
 
 ul.ativado {
