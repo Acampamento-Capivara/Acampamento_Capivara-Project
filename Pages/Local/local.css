@@ -1,0 +1,490 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+
+body {
+    background-image: url('/Imagens/Background3.png');
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 100%;
+    background-clip: initial;
+    display: flex;
+    justify-content: center;
+align-items: center;
+height: 98vh;
+overflow-x: hidden;
+
+}
+.image{
+width: 700px;
+height: 500px;
+background-image: url('/Imagens/maanaim.png');
+background-size: 170%;
+background-repeat: no-repeat;
+background-position: center;
+position: fixed;
+left: 1000px;
+top: 230px;
+border-radius: 30px;
+}
+
+ul {
+    display: flex;
+    gap: 20px;
+    position: fixed;
+    left: 740px;
+    top: 20px;
+    transition: opacity .2s ease-in-out;
+    z-index: 10;
+}
+
+ul li {
+    font-family: 'Poppins';
+    color: rgb(234 212 166);
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(95%);
+    width: 1700px;
+    height: 100px;
+    position: absolute;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    left: 100px;
+    backdrop-filter: blur(5px);
+top: 0;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 5px;
+    margin-left: 30px;
+    opacity: 1;
+}
+
+nav button {
+    border: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    font-family: 'Poppins';
+    color: rgb(205 205 150);
+    font-weight: 700;
+    left: 1560px;
+    font-size: 80%;
+    transition: background-color .3s ease;
+    cursor: pointer;
+    top: 30px;
+}
+
+nav button:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+}
+
+li {
+    text-decoration: none;
+}
+
+.li6 {
+    text-decoration: none;
+}
+
+ul li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: rgb(205 205 150);
+    bottom: -1px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+ul li:hover::after {
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+.li4::after{
+width: 100%;
+}
+.local{
+    width: 50px;
+    height: 50px;
+    mask-image: url('/Imagens/local.svg');
+background-color: rgb(205 205 150);
+mask-repeat: no-repeat;
+mask-size: cover;
+top: 250px;
+position: absolute;
+left: 260px;
+}
+h1{
+    font-family: 'Kanit';
+    color: rgb(205 205 150);
+    left: 320px;
+    position: absolute;
+font-size: 230%;
+top: 230px;
+
+}
+iframe{
+    width: 629px;
+    position: absolute;
+    left: 1035px;
+top: 540px;
+height: 150px;
+border-radius: 30px;
+pointer-events: auto !important;
+}
+h2{
+    width: 500px;
+    left: 269px;
+    position: absolute;
+    font-family: 'Poppins';
+    color: rgb(205 205 150);
+    font-weight: 400;
+    font-size: 130%;
+    top: 350px;
+}
+
+.stars div{
+    width: 25px;
+    height: 25px;
+    mask-image: url('/Imagens/stars.svg');
+    background-color: rgb(205 205 100);
+mask-size: cover;
+mask-position: center;
+position: relative;
+
+
+-webkit-mask-image: url('/Imagens/stars.svg');
+
+}.avaliacao5{
+    width: 25px;
+    height: 25px;
+    mask-image: url('/Imagens/star_half.svg');
+    background-color: rgb(205 205 100);
+mask-size: cover;
+mask-position: center;
+position: relative;
+
+-webkit-mask-image: url('/Imagens/star_half.svg');
+}
+.site{
+    width: 90px;
+height: 80px;
+background-color: rgb(205 205 150);
+position: absolute;
+left: 270px;
+top: 600px;
+border-radius: 2px 20px 20px 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.site::after{
+    width: 50px;
+    height: 50px;
+    mask-image: url('/Imagens/globo.png');
+    background-color: rgb(0, 70, 80);
+    position: absolute;
+    mask-size: cover;
+    
+    content: "";
+
+}
+.facebook{
+    width: 90px;
+height: 80px;
+background-color: rgb(205 205 150);
+position: absolute;
+left: 410px;
+top: 600px;
+border-radius: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.facebook::after{
+    width: 40px;
+    height: 40px;
+    mask-image: url('/Imagens/Logo_Facebook.png');
+    background-color: rgb(0, 70, 80);
+    position: absolute;
+    mask-size: 128%;
+    mask-position: center;
+    
+    content: "";
+
+}
+.instagram{
+    width: 90px;
+height: 80px;
+background-color: rgb(205 205 150);
+position: absolute;
+left: 550px;
+top: 600px;
+border-radius: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.instagram::after{
+    width: 40px;
+    height: 40px;
+    mask-image: url('/Imagens/Logo_Instagram.png');
+    background-color: rgb(0, 70, 80);
+    position: absolute;
+    mask-size: cover;
+    mask-position: center;
+    
+    content: "";
+
+}
+.stars{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    position: absolute;
+    left: 442px;
+    top: 523px;
+}
+body.celular{
+    background-size: 390%;
+overflow-x: hidden;
+touch-action: none;
+}
+body.celular h1{
+    left: auto;
+    width: 400px;
+    text-align: center;
+line-height: 49px;
+top: 160px;
+}
+
+body.celular nav{
+    background-color: rgba(255, 255, 255, 0.09);
+    width: 280px;
+    left: auto;
+    height: 85px;
+    margin-top: 12px;
+    border-radius: 30px;
+    justify-content: center;
+}
+body.celular .logo{
+    opacity: 0;
+}
+body.celular .local{
+    top: 134px;
+    left: 192px;
+
+}
+body.celular h2{
+    left: auto;
+    font-size: 100%;
+    width: 340px;
+    text-align: center;
+    top: 320px;
+}
+body.celular ul{
+    opacity: 0;
+}
+body.celular button{
+    opacity: 0;
+}
+body.celular .image{
+    left: auto;
+    width: 380px;
+    height: 210px;
+    top: 600px;
+}
+body.celular iframe{
+    left: auto;
+    width: 330px;
+    height: 60px;
+    top: 730px;
+border-radius: 18px;
+}
+
+body.celular .site{
+    left: 130px;
+    position: absolute;
+border-radius: 16px;
+width: 50px;
+height: 50px;
+top: 523px;
+}
+body.celular .site::after{
+    left: 10px;
+    position: absolute;
+width: 30px;
+height: 30px;
+}
+body.celular .instagram{
+    left: 190px;
+    position: absolute;
+border-radius: 16px;
+width: 50px;
+height: 50px;
+top: 523px;
+}
+body.celular .instagram::after{
+    left: 10px;
+    position: absolute;
+
+width: 30px;
+height: 30px;
+mask-size: 80%;
+mask-repeat: no-repeat;
+}
+body.celular .facebook{
+    left: 250px;
+    position: absolute;
+border-radius: 16px;
+width: 50px;
+height: 50px;
+top: 522px;
+}
+body.celular .facebook::after{
+    left: 10px;
+    position: absolute;
+
+width: 30px;
+height: 30px;
+}
+body.celular .stars{
+left:150px;
+top: 830px;}
+body.celular .others{
+opacity: 1;}
+.others{
+
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: fixed;
+    left: auto;
+    top: 40px;
+    transition: transform .3s ease;
+}
+.others::after{
+content: "";
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: absolute;
+top: 10px;
+left: 0;
+    transition: transform .3s ease;
+}
+.others::before{
+content: "";
+    width: 30px;
+    height: 5px;
+    background-color: rgb(205 205 150);
+    position: absolute;
+top: -10px;
+left: 0;
+    transition: transform .3s ease;
+}
+
+.others.ativado{
+    transform: rotate(90deg);
+    background-color: rgb(175 175 130);
+    opacity: 1;
+}
+.others.ativado::after{
+ 
+    background-color: rgb(175 175 130);
+}
+.others.ativado::before{
+ 
+    background-color: rgb(175 175 130);
+}
+body:has(.others.ativado) nav{
+     height: 300px;
+    z-index: 1;
+    background-color: rgb(205 205 150);
+    backdrop-filter: blur(2px);
+    transition: height .3s ease-in-out, rgba .3s ease-in-out;
+    left: auto;
+}
+body:has(.others.ativado) ul{
+    opacity: 1;
+    left: 0px;
+    top: 30px;
+}
+
+body:has(.others.ativado) .li1 {
+    top: 40px;
+    position: absolute;
+    left: 31px;
+}
+body:has(.others.ativado) li {
+ color: rgb(0,90,70);
+}
+
+
+body:has(.others.ativado) .li2 {
+    top: 85px;
+    position: absolute;
+    left: 31px;
+    width: 200px;
+}
+body:has(.others.ativado) .li4::after {
+  background-color: rgb(0,90,70);
+   width: 60px;
+}
+
+body:has(.others.ativado) .li3 {
+    top: 134px;
+    position: absolute;
+    left: 31px;
+    width: 1px;
+}
+
+body:has(.others.ativado) .li4 {
+    top: 86px;
+    position: absolute;
+    left: 180px;
+    width: 100px;
+    
+}
+
+body:has(.others.ativado) .li5  {
+    top: 133px;
+    position: absolute;
+    left: 150px;
+    width: 200px;
+}
+
+body:has(.others.ativado) .li6  {
+    top: 40px;
+    position: absolute;
+    left: 80px;
+    text-align: center;
+    width: 200px;
+}
+body:has(.others.ativado) .nav-button  {
+    top: 230px;
+    background-color: rgb(0,90,70);
+    opacity: 1;
+    left:97px;
+}
+
+.others{
+    opacity: 0;
+}

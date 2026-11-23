@@ -51,6 +51,10 @@
 {
 "source": "/agenciadiva",
 "destination": "/Pages/Agencia-Diva/agenciadiva.html"
+},
+{
+"source": "/contagem",
+"destination": "/Pages/Contagem/contagem.html"
 }
 ]
 }
