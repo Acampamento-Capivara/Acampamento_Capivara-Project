@@ -11,10 +11,26 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Acampamento Capivara",
-  "alternateName": "Acampamento Capivara Oficial",
-  "url": "https://www.acampamentocapivara.com.br/"
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.acampamentocapivara.com.br/#website",
+      "name": "Acampamento Capivara",
+      "alternateName": "Acampamento Capivara Oficial",
+      "url": "https://www.acampamentocapivara.com.br/",
+      "publisher": { "@id": "https://www.acampamentocapivara.com.br/#organizacao" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.acampamentocapivara.com.br/#organizacao",
+      "name": "Acampamento Capivara",
+      "url": "https://www.acampamentocapivara.com.br/",
+      "logo": "https://www.acampamentocapivara.com.br/Imagens/Logo/Logo-sem-fundo.png",
+      "sameAs": [
+        "https://www.instagram.com/acampamentocapivara"
+      ]
+    }
+  ]
 }
 </script>
 </head>
